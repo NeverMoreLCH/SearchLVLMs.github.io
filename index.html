@@ -208,13 +208,13 @@
         <h2 class="title is-3">🔔News</h2>
         <div class="content has-text-justified">
           <p>
-            <b>🔥[2024-08-07] We released the <a href="https://arxiv.org/abs/2408.02718">technical report</a>.</b>
+            <b>🔥[2024-09-26] Accepted at NeurIPS 2024!</b>
           </p>
       </div>      
         <h2 class="title is-3">Introduction</h2>
         <div class="content has-text-justified">
           <p>
-            The capability to process multiple images is crucial for Multimodal Large Language Models, as a single image captures information from a specific angle and moment, limiting the model's ability to understand and reason about the entire scene. Recent multi-image Multimodal Large Language Models (MLLMs) have begun to address this need. However, their evaluation has not kept pace with their development. To fill this gap, we introduce the Multimodal Multi-image Understanding (MMIU) benchmark, a comprehensive evaluation suite designed to assess MLLMs across a wide range of multi-image tasks. MMIU encompasses 7 types of multi-image relationships, 52 tasks, 77K images, and 11K meticulously curated multiple-choice questions, making it the most extensive benchmark of its kind. Our evaluation of 24 popular MLLMs, including both open-source and proprietary models, reveals significant challenges in multi-image comprehension, particularly in tasks involving spatial understanding. Even the most advanced models, such as GPT-4o, achieve only 55.7% accuracy on MMIU. Through multi-faceted analytical experiments, we identify key performance gaps and limitations, providing valuable insights for future model and data improvements. We aim for MMIU to advance the frontier of LVLM research and development, moving us toward achieving sophisticated multimodal multi-image user interactions.
+            Large vision-language models (LVLMs) are ignorant of the up-to-date knowledge, such as LLaVA series, because they cannot be updated frequently due to the large amount of resources required, and therefore fail in many cases. For example, if a LVLM was released on January 2024, and it wouldn't know the detailed plot of the new movie Dune 2, such as "the dead of an important duel", because this movie was not yet released when the LVLM was trained. To solve the problem, a promising solution is to provide LVLMs with up-to-date knowledge via internet search during inference, i.e., internet-augmented generation (IAG), which is already integrated in some closed-source commercial LVLMs such as GPT-4V. However, the specific mechanics underpinning them remain a mystery. In this paper, we propose a plug-and-play framework, for augmenting existing LVLMs in handling visual question answering (VQA) about up-to-date knowledge, dubbed UDKAG. A hierarchical filtering model is trained to effectively and efficiently find the most helpful content from the websites returned by a search engine to prompt LVLMs with up-to-date knowledge. To train the model and evaluate our framework's performance, we propose a pipeline to automatically generate news-related VQA samples to construct a dataset, dubbed UDK-VQA. A multi-model voting mechanism is introduced to label the usefulness of website/content for VQA samples to construct the training set. For the test set, we perform manual screening to ensure the correctness of test samples. Experimental results demonstrate significant improvements of our framework over LVLMs, outperforming the self-contained IAG-capable GPT-4V by about 25% in accuracy on UDK-VQA test set.
           </p>
         </div>
       </div>
@@ -225,8 +225,8 @@
 
 <section class="hero is-light is-small">
   <div class="hero-body has-text-centered">
-  <h1 class="title is-1 MMIU">
-    <span class="MMIU" style="vertical-align: middle">MMIU</span>
+  <h1 class="title is-1 MMT-Bench">
+    <span class="SearchLVLMs" style="vertical-align: middle">MMIU</span>
   </h1>
   </div>
 </section>
@@ -241,24 +241,12 @@
           <img src="static/images/MMeval_construct.jpg" alt="pipeline" class="center">
           <br>
           <p>
-            An illustration of our data collection process. First, we refine multi-image tasks and collect task data based on cognitive psychology. Then, we standardize these datasets into a uniform format—metadata. Next, we generate multiple-choice samples with answerable and unanswerable questions from the metadata using either manually designed rules or GPT4o. Our benchmarks include capability evaluations across various image types.
+            The proposed SearchLVLMs, a framework for LVLMs to access up-to-date knowledge.  It consists of four components: query generator, search engine, hierarchical filtering model, and augmented generation.
           </p>
         </div>
     </div>
     </div>
 
-    <div class="columns is-centered has-text-centered">
-      <!-- <div class="column is-full-width has-text-centered"> -->
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Comparisons with Existing Benchmarks</h2>
-        <div class="content has-text-justified">
-          <p>
-            The comparison between MMIU and existing multi-image evaluation benchmarks including Video-MME, MIRB, MUIRBENCH, and MileBench. We summarize the image relationships in previous benchmarks according to seven categories defined in MMIU. `Y\&N' indicates that our MMIU comprises both answerable and unanswerable questions. I, T, V, D and P represent image, text, video, depth map and point cloud, respectively. Compared with prior datasets, MMIU involves massive test samples spanning 52 multimodal tasks and 5 modalities, and comprehensive multi-image analyses by image relationships, task map and supervised fine-tuning (SFT). 
-        </p>
-        <img src="static/images/compare.png" alt="comparison" class="center">
-        </div>
-    </div>
-    </div>
   </div>
 </section>
 
